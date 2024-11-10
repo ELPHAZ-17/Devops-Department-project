@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Department Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            font-size: medium;
+        }
+        /* Global Styles */
+        
+        body {
+            background: linear-gradient(135deg, #686a6d, #e0e7ff);
+            color: #f30101;
+            line-height: 1.7;
+            transform: matrix3d(1.1);
+        }
+        
+        h2 {
+            color: #1dd135;
+            font-size: medium;
+        }
+        
+        h4 {
+            color: #ffffff font-size: medium;
+        }
+        /* Smooth fade-in animation for sections */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section {
+            animation: fadeIn 1s ease-in-out;
+        }
+        /* Header */
+        
+        header {
+            background: linear-gradient(45deg, #3b3a3a, #353333);
+            color: #00ff4c;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 6;
+            z-index: 1500;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+        }
+        
+        header nav a {
+            color: #ffffff;
+            margin-left: 4rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Underline transition effect */
+        
+        header nav a:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #02ff24;
+            bottom: 0;
+            left: -100%;
+            transition: left 0.3s;
+            top: 3;
+        }
+        
+        header nav a:hover:after {
+            left: 0;
+            color: #00ff22;
+        }
+        /* Section Styles */
+        
+        section {
+            padding: 2.5rem;
+            max-width: 1100px;
+            margin: 2rem auto;
+            border-radius: 10px;
+            background: #0f0707;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        /* Home Section */
+        
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2.5rem;
+        }
+        
+        #home img {
+            width: 350px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(14, 233, 43, 0.829);
+            animation: fadeIn 2s ease-in-out;
+            transition: transform 0.3s;
+        }
+        
+        #home img:hover {
+            transform: scale(1.1);
+        }
+        
+        .home-text {
+            max-width: 300%;
+            animation: fadeIn 1.5s ease-out;
+            font-size: var(Header);
+            font-weight: lighter;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #ffffff;
+        }
+        
+        #home nav {
+            color: #0225ee;
+        }
+        /* Social Media Links */
+        
+        .social-media {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: left;
+        }
+        
+        .social-media a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #491a1a;
+            border-radius: 100%;
+            color: #fff;
+            font-size: 1.5rem;
+            transition: background 0.3s, transform 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-media a:hover {
+            background: #ff0000;
+            transform: scale(1.1);
+            transition: ease-in-out;
+            transition-duration: 0.2s;
+        }
+        /* About Section */
+        
+        #about {
+            text-align: left;
+            padding: 5rem;
+            font-size: var(DEPARTMENT);
+            font-weight: lighter;
+            font-family: monospace;
+            color: white;
+            font-style: var(#ffffff);
+            font-variant-ligatures: no-additional-ligatures;
+            font: optional;
+        }
+        
+        .home-text {
+            max-width: 300%;
+            animation: fadeIn 1, 5s ease-out;
+            font-size: 500%;
+            font-weight: lighter;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #ffffff;
+            place-items: right;
+        }
+        
+        #about img {
+            width: 350px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(57, 230, 14, 0.842);
+            transition: transform 0.3s;
+            animation: fadeIn 1.5s ease-in-out;
+            align-items: last baseline;
+            justify-content: space-between;
+            place-items: right;
+        }
+        
+        #about img:hover {
+            transform: scale(1.1);
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        #about.info p {
+            font-size: 64px;
+            margin: 10px 0 25px;
+        }
+        /* Skills Section */
+        
+        #skills {
+            text-align: center;
+            padding: 3.2rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 10rem;
+            flex-wrap: wrap;
+        }
+        
+        .skill {
+            text-align: center;
+            width: 130px;
+            background: linear-gradient(135deg, #f1f1f1, #e2e8f0);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(109, 32, 32, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(2, 255, 2, 0.979);
+            color: #000000;
+        }
+        
+        .skill-logo {
+            max-width: 60px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background: linear-gradient(90deg, #00ff15, #ff0000);
+            color: #000000;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-weight: lighter;
+            animation: progressAnimation 2s ease-in-out;
+        }
+        /* Progress bar animation */
+        
+        @keyframes progressAnimation {
+            from {
+                width: 0;
+            }
+            to {
+                width: inherit;
+            }
+        }
+        /* Contact Section */
+        
+        #contact {
+            text-align: center;
+            padding: 2.5rem;
+        }
+        
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        #contact input,
+        #contact button {
+            padding: 0.8rem;
+            border: 1px solid #333;
+            border-radius: 5px;
+            box-shadow: #fcfcfc;
+            outline: none;
+            transition: border-color 10s ease-in-out;
+        }
+        
+        #contact input:focus {
+            border-color: #e41c91;
+        }
+        
+        #contact button {
+            background: #df1a1a;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        #contact button:hover {
+            background: #61eb06;
+            transform: scale(1.1);
+            box-shadow: #ffffff;
+            animation: ProgressAnimation 2s ease-in-out;
+            transition: transform 1s ease;
+        }
+        /* Footer */
+        
+        footer {
+            background: #313030;
+            color: #00ff22;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        footer p {
+            margin: 10;
+        }
+        
+        footer .footer-links {
+            margin-top: 1rem;
+        }
+        
+        footer .footer-links a {
+            color: #0be428;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: transform 1s ease-out;
+            transform: scale(1.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        footer .footer-links a:hover {
+            color: #ff0000;
+            margin: 0 1rem;
+            transform: scale(1.1);
+            transition: transform 1s ease-in-out;
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with Logo -->
+    <header>
+        <h1>&lt;/&gt; DEVOPS DEPARTMENT
+        </h1>
+        <nav>
+            <a href="#home"><b>Home </b></a>
+            <a href="#about"><b>About</b></a>
+            <a href="#skills"><b>Skills</b></a>
+            <a href="#contact"><b>Contact</b></a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="home-text">
+            <h2><b>HI I'm Mr</b> <span><b>Abreahm</b></span>
+                <font-size>
+                    <A:link></A:link>
+                </font-size>
+            </h2>
+            <p>I am a web developer,proficiance in coding and maintaining websites to ensure functional and responsiveness. <b>Developing...</b></p>
+        </div>
+        <img src="./image/abu.jpg">
+        </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2><b>About Me</b></h2>
+        <p>
+            Helloo I'm Abreham ,a passionste web developer specializing in HTML and a love for crafting <br>visually appealing and responsive websites , I strive to create seamless user experiences.
+        </p>
+        <img src="./image/myphoto.jpg" alt="">
+
+        <!-- Social Media Links under About -->
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank" class="facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com" target="_blank" class="github">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2><b>My Skills</b></h2>
+        <div class="skills-container">
+            <div class="skill">
+                <img src="./image/download.png" height="61px" ,width="61px" alt="skill1">
+                <h3>HTML</h3>
+                <div class="progress-bar" style="width: 80%;">80%</div>
+            </div>
+            <div class="skill">
+                <img src="./image/download (1).png" height="61px" width="61px" class="" alt="skill2">
+                <h3>CSS</h3>
+                <div class="progress-bar" style="width: 70%;">70%</div>
+            </div>
+            <div class="skill">
+                <img src="./image/images.jfif" height="61px" width="61px" class="" alt="skill3">
+                <h3>JavaScript</h3>
+                <div class="progress-bar" style="width: 60%;">60%</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2> <b>Let's Connect</b></h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DevOps Department</p>
+        <p> Developed by Abreham IT</p>
+        <div class="footer-links">
+            <a href="#">Privacy</a>|
+            <a href="#">policy</a>|
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+
+</html>
